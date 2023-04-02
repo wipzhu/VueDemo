@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!--生产环境版本-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <a href="#">{{info}}</a>
+    <hr>
+    <a v-bind:href="next">点击有惊喜</a>
+    <br>
+    <!-- 简写等同于-->
+    <a :href="next">简写点击有惊喜</a>
+    <hr>
+    <a href="#" v-if="isLogin">个人中心 </a>
+    <a href="#" v-else>请登录</a>
+    <hr>
+    <a href="#" v-if="level===1">皇帝</a>
+    <a href="#" v-else-if="level===2">皇亲</a>
+    <a href="#" v-else-if="level===3">国戚</a>
+    <a href="#" v-else-if="level===4">大臣</a>
+    <a href="#" v-else>平民</a>
+    <hr>
+    <span v-if="seen">if</span>
+    <span v-show="seen">show</span>
+</div>
+
+</body>
+<script type="text/javascript">
+    /**
+     * var app 定义一个变量
+     * new Vue()实例化
+     * el:'#app" 获取元素，相当于js的document，getElementById('app')
+     * data: 变量
+     * @type {Vue}
+     */
+    var app = new Vue({
+        el: '#app',
+        // delimiters: ["{{", "}}"],
+        data: {
+            message: 'hello vue!',
+            info: "请登录",
+            next: "https://www.bilibili.com",
+            isLogin: true,
+            level: 2,
+            seen: false,
+        }
+    })
+
+</script>
+</html>
